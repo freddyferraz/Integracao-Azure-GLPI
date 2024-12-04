@@ -1,0 +1,6 @@
+@IntegracaoGLPI_DevOps_HostAddress = http://localhost:5161
+
+GET {{IntegracaoGLPI_DevOps_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
