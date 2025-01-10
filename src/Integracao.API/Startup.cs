@@ -4,6 +4,7 @@ using IntegracaoGLPI_DevOps.Service;
 using IntegracaoGLPI_DevOps.Service.Interfaces;
 using IntegracaoGLPI_DevOps.ViewModel;
 using IntegracaoGLPI_DEvOps.Service.DTO;
+using IntegracaoGLPI_DEvOps.Service.Interfaces;
 using IntegracaoGLPI_DEvOps.Service.Services;
 
 namespace Integracao_Glpi_DevOps;
@@ -16,12 +17,14 @@ public class Startup
         var autoMapperConfig = new MapperConfiguration(cfg =>
         {
             cfg.CreateMap<TicketGLPIViewModel, TicketGLPIDTO>().ReverseMap();
+            cfg.CreateMap<CardDevOpsViewModel, CardDevOpsDTO>().ReverseMap();
         });
         services.AddSingleton(autoMapperConfig.CreateMapper());
         #endregion
 
         #region Services
         services.AddScoped<IIntegraGLPIService, IntegraGLPIService>();
+        services.AddScoped<IIntegraDevOpsService, IntegraDevOpsService>();
         #endregion
 
 

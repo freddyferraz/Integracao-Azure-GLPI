@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using IntegracaoGLPI_DevOps.Core.Structs;
 using IntegracaoGLPI_DevOps.Service.Interfaces;
 using IntegracaoGLPI_DevOps.ViewModel;
 using IntegracaoGLPI_DEvOps.Service.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace IntegracaoGLPI_DevOps.Controller
 {

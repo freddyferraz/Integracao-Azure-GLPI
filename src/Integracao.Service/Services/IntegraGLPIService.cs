@@ -2,15 +2,9 @@
 using IntegracaoGLPI_DevOps.Service.Interfaces;
 using IntegracaoGLPI_DEvOps.Service.DTO;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Headers;
-using System.Net.Sockets;
-using System.Runtime.InteropServices.JavaScript;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 
 
@@ -117,7 +111,6 @@ namespace IntegracaoGLPI_DEvOps.Service.Services
         {
             var client = new HttpClient();
             var urltmp = url + "Ticket/1821/ITILFollowup";
-            string dados = "";
             var request = new HttpRequestMessage(HttpMethod.Post, urltmp);
 
             request.Headers.Add("Session-Token", _sessionToken);
@@ -139,7 +132,7 @@ namespace IntegracaoGLPI_DEvOps.Service.Services
 
 
 
-                var jsonData = json.ToString();//JsonSerializer.Serialize(json);
+                var jsonData = json.ToString();
 
 
                 var content = new StringContent(jsonData, null, "application/json");
