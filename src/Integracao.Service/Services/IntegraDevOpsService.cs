@@ -1,6 +1,7 @@
 ﻿using IntegracaoGLPI_DevOps.Core.Structs;
 using IntegracaoGLPI_DEvOps.Service.DTO;
 using IntegracaoGLPI_DEvOps.Service.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.VisualStudio.Services.Common;
 using Microsoft.VisualStudio.Services.WebApi;
 using Newtonsoft.Json.Linq;

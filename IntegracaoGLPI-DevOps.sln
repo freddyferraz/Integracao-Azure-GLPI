@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integracao.Core", "src\Inte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integracao.Service", "src\Integracao.Service\Integracao.Service.csproj", "{409D2CEA-7D30-4E6D-A825-269EF04F1062}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integracao.Infra", "src\Integracao.Infra\Integracao.Infra.csproj", "{1CB181A4-142C-4F88-B73D-2667C1804803}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{409D2CEA-7D30-4E6D-A825-269EF04F1062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{409D2CEA-7D30-4E6D-A825-269EF04F1062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{409D2CEA-7D30-4E6D-A825-269EF04F1062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CB181A4-142C-4F88-B73D-2667C1804803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB181A4-142C-4F88-B73D-2667C1804803}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB181A4-142C-4F88-B73D-2667C1804803}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB181A4-142C-4F88-B73D-2667C1804803}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +43,7 @@ Global
 		{2471FF2A-921C-4DDE-AFE6-2AD4A74FB243} = {238BA828-7690-4C07-A1C6-506CB5E0470D}
 		{3EA746DF-14AA-4CB5-A56D-6D7FFDB576C8} = {238BA828-7690-4C07-A1C6-506CB5E0470D}
 		{409D2CEA-7D30-4E6D-A825-269EF04F1062} = {238BA828-7690-4C07-A1C6-506CB5E0470D}
+		{1CB181A4-142C-4F88-B73D-2667C1804803} = {238BA828-7690-4C07-A1C6-506CB5E0470D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {74D4BA93-53F8-4FC7-9050-9878EA82FED1}

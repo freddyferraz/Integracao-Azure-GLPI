@@ -1,17 +1,19 @@
 
 using AutoMapper;
-using IntegracaoGLPI_DevOps.Service;
+using Integracao.Infra;
+using Integracao.Infra.Abstractions;
 using IntegracaoGLPI_DevOps.Service.Interfaces;
 using IntegracaoGLPI_DevOps.ViewModel;
 using IntegracaoGLPI_DEvOps.Service.DTO;
 using IntegracaoGLPI_DEvOps.Service.Interfaces;
 using IntegracaoGLPI_DEvOps.Service.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Integracao_Glpi_DevOps;
 
 public class Startup
 {
-    public void ConfigureServices(IServiceCollection services)
+    public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
     {
         #region AutoMapper
         var autoMapperConfig = new MapperConfiguration(cfg =>
@@ -27,6 +29,8 @@ public class Startup
         services.AddScoped<IIntegraDevOpsService, IntegraDevOpsService>();
         #endregion
 
+        services.AddDbContext<IntegracaoContext>(options => options.UseSqlServer(configuration["connectionStrings"]));
+        services.AddScoped<IDbSession, DbSession>();
 
         services.AddControllers();
         services.AddSwaggerGen();

@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Integracao.Core\Integracao.Core.csproj" />
+    <ProjectReference Include="..\Integracao.Infra\Integracao.Infra.csproj" />
     <ProjectReference Include="..\Integracao.Service\Integracao.Service.csproj" />
   </ItemGroup>
 
