@@ -17,12 +17,17 @@ public class IntegraDevOpsService : IIntegraDevOpsService
     private string _apiKey;
     private string _url;
     private readonly string user = "";
+    private readonly IUsuariosServices _usuariosServices;
 
-    public IntegraDevOpsService()
+    public IntegraDevOpsService(IUsuariosServices usuariosServices)
     {
         _httpClient = new HttpClient();
         _apiKey = Environment.GetEnvironmentVariable("auth_dev_ops");
         _url = Environment.GetEnvironmentVariable("urlDevOps");
+        _usuariosServices = usuariosServices;
+
+
+
     }
 
     public async Task<Optional<RetornoDevOpsDTO>> UpdateDevOps(CardDevOpsDTO updateDevOps)
@@ -31,6 +36,10 @@ public class IntegraDevOpsService : IIntegraDevOpsService
         var  request  = new HttpRequestMessage(HttpMethod.Post, _url);
 
         request.Headers.Add("Authorization", $"Basic {Convert.ToBase64String(Encoding.UTF8.GetBytes($"{user}:{_apiKey}"))}");
+
+        var emailRequerente = await _usuariosServices.RetornaEmailUsuario(long.Parse(updateDevOps.Requerente));
+
+        updateDevOps.Requerente = emailRequerente;
 
         var targetData = Transform(updateDevOps);
         var json = JsonSerializer.Serialize(targetData);

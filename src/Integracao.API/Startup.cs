@@ -13,8 +13,41 @@ namespace Integracao_Glpi_DevOps;
 
 public class Startup
 {
-    public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+    public Startup(IConfiguration configuration)
     {
+        Configuration = configuration;
+    }
+
+    public IConfiguration Configuration { get; }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+
+
+        services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(
+                builder =>
+                {
+                    if (Configuration["ASPNETCORE_ENVIRONMENT"] == "Dev")
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyHeader()
+                               .AllowAnyMethod();
+                    }
+                    else
+                    {
+                        var section = Configuration.GetSection($"CorsOrigins");
+                        var corsOrigins = section.Get<string[]>();
+
+                        builder.WithOrigins(corsOrigins)
+                               .AllowAnyHeader()
+                               .AllowAnyMethod()
+                               .AllowCredentials();
+                    }
+                });
+        });
+
         #region AutoMapper
         var autoMapperConfig = new MapperConfiguration(cfg =>
         {
@@ -29,7 +62,8 @@ public class Startup
         services.AddScoped<IIntegraDevOpsService, IntegraDevOpsService>();
         #endregion
 
-        services.AddDbContext<IntegracaoContext>(options => options.UseSqlServer(configuration["connectionStrings"]));
+        services.AddDbContext<IntegracaoContext>(options => options.UseSqlServer(Configuration["connectionStrings"]));
+       
         services.AddScoped<IDbSession, DbSession>();
 
         services.AddControllers();
