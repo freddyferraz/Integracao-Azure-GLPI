@@ -16,7 +16,7 @@
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5161",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "HML",
+        "ASPNETCORE_ENVIRONMENT": "DEV",
         "urlGLPI": "http://10.2.5.32/apirest.php/",
         "user_token": "OuSw16hd5C0jblQKjTnhml0Mx5Gh9ZFmpNCnfDaR",
         "auth_dev_ops": "E7tZLLtm0JfO6nCudvHVzRuOvjybT9QSD8kWj703IFPQz8NYIVd7JQQJ99BAACAAAAAFKoCdAAASAZDOOn8o",

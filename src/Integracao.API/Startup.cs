@@ -8,6 +8,7 @@ using IntegracaoGLPI_DEvOps.Service.DTO;
 using IntegracaoGLPI_DEvOps.Service.Interfaces;
 using IntegracaoGLPI_DEvOps.Service.Services;
 using Microsoft.EntityFrameworkCore;
+using Integracao.Infra.Repositories;
 
 namespace Integracao_Glpi_DevOps;
 
@@ -29,7 +30,7 @@ public class Startup
             options.AddDefaultPolicy(
                 builder =>
                 {
-                    if (Configuration["ASPNETCORE_ENVIRONMENT"] == "Dev")
+                    if (Configuration["ASPNETCORE_ENVIRONMENT"] == "DEV")
                     {
                         builder.AllowAnyOrigin()
                                .AllowAnyHeader()
@@ -60,6 +61,11 @@ public class Startup
         #region Services
         services.AddScoped<IIntegraGLPIService, IntegraGLPIService>();
         services.AddScoped<IIntegraDevOpsService, IntegraDevOpsService>();
+        services.AddScoped<IUsuariosServices, UsuariosServices>();
+        #endregion
+
+        #region Repositories
+        services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         #endregion
 
         services.AddDbContext<IntegracaoContext>(options => options.UseSqlServer(Configuration["connectionStrings"]));
@@ -71,7 +77,7 @@ public class Startup
     }
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        if (env.IsDevelopment())
+        if (!env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
             app.UseSwagger();

@@ -110,7 +110,7 @@ namespace IntegracaoGLPI_DEvOps.Service.Services
 
         {
             var client = new HttpClient();
-            var urltmp = url + "Ticket/1821/ITILFollowup";
+            var urltmp = url + $"Ticket/{ticketGLPIDTO.id}/ITILFollowup";
             var request = new HttpRequestMessage(HttpMethod.Post, urltmp);
 
             request.Headers.Add("Session-Token", _sessionToken);
@@ -124,6 +124,7 @@ namespace IntegracaoGLPI_DEvOps.Service.Services
 
                 JObject json = new JObject(
                                 new JProperty("input", new JObject(
+                                    new JProperty("status", ticketGLPIDTO.status),
                                     new JProperty("items_id", ticketGLPIDTO.items_id),
                                     new JProperty("itemtype", ticketGLPIDTO.itemtype),
                                     new JProperty("content", ticketGLPIDTO.content)

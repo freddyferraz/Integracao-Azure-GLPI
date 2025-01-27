@@ -50,7 +50,7 @@ namespace IntegracaoGLPI_DevOps.Controller
             {
                 Message = "Integração com GLPI realizada com sucesso!",
                 Success = true,
-                Data = finalizacao
+                Data = updatedGLPIDTO
             });
         }
 
