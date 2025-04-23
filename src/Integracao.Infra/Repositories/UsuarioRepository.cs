@@ -10,7 +10,7 @@ public sealed class UsuarioRepository(IntegracaoContext dbContext, IDbSession db
         var sql = @"SELECT ACOD_USUARIO AS acodUsuario, ADES_EMAIL as adesEmail, ADES_USUARIO as adesUSuario
                         FROM TUSUARIOS WHERE ACOD_USUARIO = @CodigoUsuario ";
 
-        var query = dbSession.Connection.Query<Usuario>(sql, new { CodigoUsuario = id });
+        var query =  dbSession.Connection.Query<Usuario>(sql, new { CodigoUsuario = id });
 
         var totalCount = query.Count();
 

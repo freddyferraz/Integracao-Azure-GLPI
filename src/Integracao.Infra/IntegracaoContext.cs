@@ -61,8 +61,40 @@ public partial class IntegracaoContext : DbContext
 
         });
 
+        modelBuilder.Entity<Tickets>(entity =>
+        {
+            entity.HasKey(e => e.AcodTickets);
+
+            entity.ToTable("TTICKETS");
+
+            entity.Property(e => e.AcodTickets).HasColumnName("ACOD_TICKETS");
+            entity.Property(e => e.AcodTicketsglpi).HasColumnName("ACOD_TICKETS_GLPI");
+            entity.Property(e => e.AcodTicketsDevops).HasColumnName("ACOD_TICKETS_DEVOPS");
+            entity.Property(e => e.AcodStatus).HasColumnName("ACOD_STATUS");
+            entity.Property(e => e.AdatAlteracao).HasColumnName("ADAT_ALTERACAO")
+                  .HasMaxLength(50);
+            entity.Property(e => e.AcodUsuario).HasColumnName("ACOD_USUARIO")
+                  .HasMaxLength(50);
 
 
+        });
+
+        modelBuilder.Entity<TDEPARAStatus>(entity =>
+        {
+            entity.HasKey(e => e.AcodStatus);
+
+            entity.ToTable("TDE_PARA_STATUS");
+
+            entity.Property(e => e.AcodStatusGlpi).HasColumnName("ACOD_STATUS_Glpi");
+            entity.Property(e => e.AdesStatusGlpi).HasColumnName("ADES_STATUS_GLPI")
+                  .HasMaxLength(50);
+            entity.Property(e => e.AcodStatusDevops).HasColumnName("ACOD_STATUS_GLPI");
+            entity.Property(e => e.AdesStatusDevops).HasColumnName("ADES_STATUS_GLPI")
+                  .HasMaxLength(50);
+            entity.Property(e => e.AcodStatus).HasColumnName("ACOD_STATUS");
+
+        });
+        
         OnModelCreatingPartial(modelBuilder);
 
     }

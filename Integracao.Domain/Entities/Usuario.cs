@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Integracao.Infra.Entities;
+﻿namespace Integracao.Domain.Entities;
 public partial class Usuario
 
 {

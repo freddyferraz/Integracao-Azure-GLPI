@@ -1,0 +1,11 @@
+﻿using Integracao.Domain.Shared;
+using Integracao.Domain.ValueObjects.DTOs;
+
+namespace Integracao.Application.Abstractions;
+public interface IGLPIService
+{
+    ValueTask<Result<string>> IniciarSessaoGLPI(string authToken);
+    ValueTask<bool> FinalizarSessaoGLPI(string authToken, string sessionToken);
+    ValueTask<Result<RetornoTicketGlpiResponse>> AtualizaStatusGLPI(long acodGlpi, int status, string sessionToken, string authToken);
+    ValueTask<Result<RetornoTicketGlpiResponse>> AtualizaTicketGLPI(long acodGlpi, string comentario, string sessionToken, string authToken);
+}
