@@ -21,7 +21,7 @@
         "user_token": "OuSw16hd5C0jblQKjTnhml0Mx5Gh9ZFmpNCnfDaR",
         "auth_dev_ops": "E7tZLLtm0JfO6nCudvHVzRuOvjybT9QSD8kWj703IFPQz8NYIVd7JQQJ99BAACAAAAAFKoCdAAASAZDOOn8o",
         "urlDevOps": "https://dev.azure.com/CCPRMG/Central%20de%20Tecnologia/_apis/wit/workitems/$CHAMADO%20GLPI?api-version=7.0",
-        "connectionStrings": "Server=10.30.90.10; Database=GLPI_DEV_OPS; User Id=CCPR_DEV; Password=G5TlM_h1U1v%j_S&7x; TrustServerCertificate=True"
+        "SQL_SERVER_CONNECTION_STRING": "Server=10.30.90.10; Database=GLPI_DEV_OPS; User Id=CCPR_DEV; Password=G5TlM_h1U1v%j_S&7x; TrustServerCertificate=True"
       }
     },
     "PRD": {
@@ -36,7 +36,7 @@
         "user_token": "OuSw16hd5C0jblQKjTnhml0Mx5Gh9ZFmpNCnfDaR",
         "auth_dev_ops": "E7tZLLtm0JfO6nCudvHVzRuOvjybT9QSD8kWj703IFPQz8NYIVd7JQQJ99BAACAAAAAFKoCdAAASAZDOOn8o",
         "urlDevOps": "https://dev.azure.com/CCPRMG/Central%20de%20Tecnologia/_apis/wit/workitems/$BUG?api-version=7.0",
-        "connectionStrings": "Server=10.30.90.10; Database=GLPI_DEV_OPS; User Id=CCPR_GLPI_DEV; Password=G5TlM_h1U1v%j_S&7x; TrustServerCertificate=True"
+        "SQL_SERVER_CONNECTION_STRING": "Server=10.30.90.10; Database=GLPI_DEV_OPS; User Id=CCPR_GLPI_DEV; Password=G5TlM_h1U1v%j_S&7x; TrustServerCertificate=True"
       }
     }
   }

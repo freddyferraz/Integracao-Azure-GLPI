@@ -51,6 +51,53 @@ public sealed class SqlServerDbContext: DbContext
                 }
             }
         }
+
+        modelBuilder.Entity<Usuario>(entity =>
+        {
+            entity.HasKey(e => e.AcodUsuario);
+
+            entity.ToTable("TUSUARIOS");
+
+            entity.Property(e => e.AcodUsuario).HasColumnName("ACOD_USUARIO");
+            entity.Property(e => e.AdesEmail).HasColumnName("ADES_EMAIL")
+                  .HasMaxLength(50);
+            entity.Property(e => e.AdesUsuario).HasColumnName("ADES_USUARIO")
+                  .HasMaxLength(50);
+
+        });
+
+        modelBuilder.Entity<Ticket>(entity =>
+        {
+            entity.HasKey(e => e.AcodTickets);
+
+            entity.ToTable("TTICKETS");
+
+            entity.Property(e => e.AcodTickets).HasColumnName("ACOD_TICKET");
+            entity.Property(e => e.AcodTicketsglpi).HasColumnName("ACOD_TICKET_GLPI");
+            entity.Property(e => e.AcodTicketsDevops).HasColumnName("ACOD_TICKET_DEVOPS");
+            entity.Property(e => e.AcodStatus).HasColumnName("ACOD_STATUS");
+            entity.Property(e => e.AdatAlteracao).HasColumnName("ADAT_ALTERACAO");
+            entity.Property(e => e.AcodUsuario).HasColumnName("ACOD_USUARIO")
+                  .HasMaxLength(50);
+
+
+        });
+
+        modelBuilder.Entity<TDeParaStatus>(entity =>
+        {
+            entity.HasKey(e => e.AcodStatus);
+
+            entity.ToTable("TDE_PARA_STATUS");
+
+            entity.Property(e => e.AcodStatusGlpi).HasColumnName("ACOD_STATUS_Glpi");
+            entity.Property(e => e.AdesStatusGlpi).HasColumnName("ADES_STATUS_GLPI")
+                  .HasMaxLength(50);
+            entity.Property(e => e.AcodStatusDevops).HasColumnName("ACOD_STATUS_DEVOPS");
+            entity.Property(e => e.AdesStatusDevops).HasColumnName("ADES_STATUS_DEVOPS")
+                  .HasMaxLength(50);
+            entity.Property(e => e.AcodStatus).HasColumnName("ACOD_STATUS");
+
+        });
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(SqlServerDbContext).Assembly);
     }
 }

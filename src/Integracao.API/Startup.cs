@@ -2,7 +2,6 @@
 using AutoMapper;
 using Integracao.Infra;
 using Integracao.Infra.Abstractions;
-using IntegracaoGLPI_DevOps.Service.Interfaces;
 using IntegracaoGLPI_DevOps.ViewModel;
 using IntegracaoGLPI_DEvOps.Service.DTO;
 using IntegracaoGLPI_DEvOps.Service.Interfaces;
@@ -59,7 +58,6 @@ public class Startup
         #endregion
 
         #region Services
-        services.AddScoped<IIntegraGLPIService, IntegraGLPIService>();
         services.AddScoped<IIntegraDevOpsService, IntegraDevOpsService>();
         services.AddScoped<IUsuariosServices, UsuariosServices>();
         #endregion

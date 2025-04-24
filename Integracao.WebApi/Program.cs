@@ -2,6 +2,7 @@ using Asp.Versioning;
 using Integracao.Application;
 using Integracao.Infra.Data;
 using Integracao.WebApi.Endpoints;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 

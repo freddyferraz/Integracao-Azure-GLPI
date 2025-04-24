@@ -1,3 +1,7 @@
 ﻿namespace Integracao.Domain.ValueObjects.DTOs;
-public sealed record RetornoTicketGlpiResponse(long id, string message);
+public class RetornoTicketGlpiResponse
+{
+    public int id { get; set; }
+    public string? message { get; set; }
+}
 

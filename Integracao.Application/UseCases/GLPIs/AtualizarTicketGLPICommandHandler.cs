@@ -17,7 +17,7 @@ internal class AtualizarTicketGLPICommandHandler(ITicketsRepository ticketsRepos
             return Result.Failure<AtualizarTicketGLPIResponse>(UsuarioErrors.EmailUsuarioNaoEncontrado);
         }
 
-        var deParaStatus = await deParaStatusRepository.GetDeParaAzureAsync(command.acodTicketAzure);
+        var deParaStatus = await deParaStatusRepository.GetDeParaAzureAsync(command.status);
         if(deParaStatus is null)
         {
             return Result.Failure<AtualizarTicketGLPIResponse>(DeParaStatusErrors.StatusAzureNaoEncontrado);
@@ -33,7 +33,7 @@ internal class AtualizarTicketGLPICommandHandler(ITicketsRepository ticketsRepos
         var sessao = await gLPIService.IniciarSessaoGLPI(command.token);
 
         #region Verificação Alteração Status
-        if(ticket.AcodStatus != command.status)
+        if(ticket.AcodStatus != deParaStatus.AcodStatus)
         {
             var updateStatus = await gLPIService.AtualizaStatusGLPI(ticket.AcodTicketsglpi, deParaStatus.AcodStatusGlpi, sessao.Value, command.token);
         }
@@ -43,6 +43,13 @@ internal class AtualizarTicketGLPICommandHandler(ITicketsRepository ticketsRepos
 
         var result = new AtualizarTicketGLPIResponse(true, updateConteudo.Value.message);
 
+        ticket.AcodStatus = deParaStatus.AcodStatus;
+        ticket.AdatAlteracao = DateTime.Now;
+        
+        await ticketsRepository.UpdateTicket(ticket);
+
+        await unityOfWork.SaveChangesAsync(cancellationToken);
+        
         return Result.Success(result);
     }
 }

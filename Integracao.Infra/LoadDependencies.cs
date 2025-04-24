@@ -19,6 +19,7 @@ public static class LoadDependencies
         services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         services.AddScoped<IDeParaStatusRepository, DeParaStatusRepository>();
         services.AddScoped<ITicketsRepository, TicketsRepository>();
+
         
 
         services.AddScoped<IUnityOfWork, UnityOfWork>();

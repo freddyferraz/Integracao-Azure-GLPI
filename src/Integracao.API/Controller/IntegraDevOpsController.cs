@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using IntegracaoGLPI_DevOps.Service.Interfaces;
 using IntegracaoGLPI_DevOps.ViewModel;
 using IntegracaoGLPI_DEvOps.Service.DTO;
 using IntegracaoGLPI_DEvOps.Service.Interfaces;

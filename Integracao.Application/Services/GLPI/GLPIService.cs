@@ -4,7 +4,6 @@ using Integracao.Domain.Shared;
 using Integracao.Domain.ValueObjects.DTOs;
 using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 
@@ -34,25 +33,31 @@ internal class GLPIService : IGLPIService
 
         var responseContent = await response.Content.ReadAsStringAsync();
         var tokenGLPIDTO = JsonSerializer.Deserialize<GLPISessionTokenResponse>(responseContent);
-        var sessionToken = tokenGLPIDTO.sessionToken;
+        var sessionToken = tokenGLPIDTO.session_token;
 
         return sessionToken!;
 
     }
-    public async ValueTask<Result<RetornoTicketGlpiResponse>> AtualizaStatusGLPI(long acodGlpi, int status, string sessionToken, string authToken)
+    public async ValueTask<Result<bool>> AtualizaStatusGLPI(long acodGlpi, int status, string sessionToken, string authToken)
     {
         var _httpClient = new HttpClient();
         var urltmp = Environment.GetEnvironmentVariable("urlGLPI") + $"Ticket/{acodGlpi}";
-        var request = new HttpRequestMessage(HttpMethod.Post, urltmp);
+        var request = new HttpRequestMessage(HttpMethod.Patch, urltmp);
 
         request.Headers.Add("Session-Token", sessionToken);
         request.Headers.Add("App-Token", authToken);
 
-        JObject json = new JObject(
-                                new JProperty("input", new JObject(
-                                    new JProperty("status", status),
-                                    new JProperty("items_id", acodGlpi)
-                                )));
+        JObject json = new JObject
+                            (
+                                new JProperty
+                                ("input", new JObject
+                                    (
+                                    new JProperty("id", acodGlpi),
+                                    new JProperty("status", status)
+                                    
+                                    )
+                                )
+                             );
 
         var jsonData = json.ToString();
         var content = new StringContent(jsonData, null, "application/json");
@@ -63,12 +68,14 @@ internal class GLPIService : IGLPIService
 
         if (!response.IsSuccessStatusCode)
         {
-            return Result.Failure<RetornoTicketGlpiResponse>(TicketErrors.ErroAtualizarTicketGLPI);
+            return Result.Failure<bool>(TicketErrors.ErroAtualizarTicketGLPI);
         }
+        
         var responseContent = await response.Content.ReadAsStringAsync();
-        var result = JsonSerializer.Deserialize<RetornoTicketGlpiResponse>(responseContent);
+        
+        //var result = JsonSerializer.Deserialize<RetornoTicketGlpiResponse>(responseContent);
 
-        return Result.Success(result);
+        return Result.Success(true);
 
 
     }
@@ -81,12 +88,18 @@ internal class GLPIService : IGLPIService
         request.Headers.Add("Session-Token", sessionToken);
         request.Headers.Add("App-Token", authToken);
 
-        JObject json = new JObject(
-                                new JProperty("input", new JObject(
-                                    new JProperty("items_id", acodGlpi),
-                                    new JProperty("itemtype", "Ticket"),
-                                    new JProperty("content", comentario)
-                                )));
+        JObject json = new JObject
+                             (
+                                new JProperty
+                                    ("input", 
+                                        new JObject
+                                        (
+                                            new JProperty("items_id", acodGlpi),
+                                             new JProperty("itemtype", "Ticket"),
+                                            new JProperty("content", comentario)
+                                        )
+                                    )
+                             );
 
         var jsonData = json.ToString();
         var content = new StringContent(jsonData, null, "application/json");

@@ -11,9 +11,9 @@
 
         public long AcodStatus { get; set; }
 
-        public required string AdatAlteracao { get; set; }
+        public DateTime AdatAlteracao { get; set; }
         
-        public string? AcodUsuario { get; set; }
+        public long AcodUsuario { get; set; }
 
         
     }
