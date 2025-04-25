@@ -1,5 +1,5 @@
 ﻿using Integracao.Domain.Shared;
-using Integracao.Domain.ValueObjects.DTOs;
+using Integracao.Domain.ValueObjects.GLPI;
 
 namespace Integracao.Application.Abstractions;
 public interface IGLPIService

@@ -12,13 +12,13 @@ internal sealed class MapEndpointGlpi : IEndpointMap
 {
     public void MapEndpoints(IEndpointRouteBuilder app)
     {
-        app.MapPost("glpi/{id}", AtualizarTicketGlpiAsync)
+        app.MapPost("azure/{id}", AtualizarTicketGlpiAsync)
             .Produces<AtualizarTicketGLPIResponse>(StatusCodes.Status200OK)
             .Produces(404)
             .Produces<AtualizarTicketGLPIResponse>(StatusCodes.Status400BadRequest)
             .Produces<AtualizarTicketGLPIResponse>(StatusCodes.Status401Unauthorized)
             .Produces(StatusCodes.Status500InternalServerError)
-            .WithTags("Glpi")
+            .WithTags("Azure")
             .MapToApiVersion(1);
     }
 

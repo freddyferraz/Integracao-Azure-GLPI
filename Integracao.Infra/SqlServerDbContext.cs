@@ -77,8 +77,7 @@ public sealed class SqlServerDbContext: DbContext
             entity.Property(e => e.AcodTicketsDevops).HasColumnName("ACOD_TICKET_DEVOPS");
             entity.Property(e => e.AcodStatus).HasColumnName("ACOD_STATUS");
             entity.Property(e => e.AdatAlteracao).HasColumnName("ADAT_ALTERACAO");
-            entity.Property(e => e.AcodUsuario).HasColumnName("ACOD_USUARIO")
-                  .HasMaxLength(50);
+            entity.Property(e => e.AcodUsuario).HasColumnName("ACOD_USUARIO");
 
 
         });

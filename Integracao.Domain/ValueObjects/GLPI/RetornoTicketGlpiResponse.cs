@@ -1,4 +1,4 @@
-﻿namespace Integracao.Domain.ValueObjects.DTOs;
+﻿namespace Integracao.Domain.ValueObjects.GLPI;
 public class RetornoTicketGlpiResponse
 {
     public int id { get; set; }

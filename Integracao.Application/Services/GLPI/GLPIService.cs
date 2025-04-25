@@ -1,7 +1,7 @@
 ﻿using Integracao.Application.Abstractions;
 using Integracao.Domain.Errors;
 using Integracao.Domain.Shared;
-using Integracao.Domain.ValueObjects.DTOs;
+using Integracao.Domain.ValueObjects.GLPI;
 using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
 using System.Text;
