@@ -18,6 +18,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "DEV",
         "urlGLPI": "Informar a URL de conexão da API GLPI",
+        "linkTicket ": "Informar link do Ticket até  iniciar o ID",
         "user_token": "Informar User token do GLPI",
         "auth_dev_ops": "Informar Token do Azure DevOps",
         "urlDevOps": "Informar URL de conexão com Azure DevOps",
@@ -32,11 +33,12 @@
       "applicationUrl": "http://localhost:5161",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "PRD",
-        "urlGLPI": "Informar a URL de conexão da API GLPI",
-        "user_token": "Informar User token do GLPI",
-        "auth_dev_ops": "Informar Token do Azure DevOps",
-        "urlDevOps": "Informar URL de conexão com Azure DevOps",
-        "SQL_SERVER_CONNECTION_STRING": "String de conexão com Banco de dados"
+        "urlGLPI": "http://10.2.5.32/apirest.php/",
+        "linkTicket ": "http://10.2.5.32/front/ticket.form.php?id=",
+        "user_token": "OuSw16hd5C0jblQKjTnhml0Mx5Gh9ZFmpNCnfDaR",
+        "auth_dev_ops": "E7tZLLtm0JfO6nCudvHVzRuOvjybT9QSD8kWj703IFPQz8NYIVd7JQQJ99BAACAAAAAFKoCdAAASAZDOOn8o",
+        "urlDevOps": "https://dev.azure.com/CCPRMG/Central%20de%20Tecnologia/_apis/wit/workitems/$BUG?api-version=7.0",
+        "SQL_SERVER_CONNECTION_STRING": "Server=10.30.90.10; Database=GLPI_DEV_OPS; User Id=CCPR_GLPI_DEV; Password=G5TlM_h1U1v%j_S&7x; TrustServerCertificate=True"
       }
     }
   }
