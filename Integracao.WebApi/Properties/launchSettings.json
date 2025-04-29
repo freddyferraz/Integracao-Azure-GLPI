@@ -18,6 +18,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "DEV",
         "urlGLPI": "http://10.2.5.32/apirest.php/",
+        "linkTicket ": "http://10.2.5.32/front/ticket.form.php?id=",
         "user_token": "OuSw16hd5C0jblQKjTnhml0Mx5Gh9ZFmpNCnfDaR",
         "auth_dev_ops": "FS8z6So31p85lk1lhoxc3oacc1WPxH8cWJ1xryAnW1RYnAmptyIIJQQJ99BDACAAAAAFKoCdAAASAZDO4ShS",
         "urlDevOps": "https://dev.azure.com/CCPRMG/Central%20de%20Tecnologia/_apis/wit/workitems/",
@@ -33,6 +34,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "PRD",
         "urlGLPI": "http://10.2.5.32/apirest.php/",
+        "linkTicket ": "http://10.2.5.32/front/ticket.form.php?id=",
         "user_token": "OuSw16hd5C0jblQKjTnhml0Mx5Gh9ZFmpNCnfDaR",
         "auth_dev_ops": "E7tZLLtm0JfO6nCudvHVzRuOvjybT9QSD8kWj703IFPQz8NYIVd7JQQJ99BAACAAAAAFKoCdAAASAZDOOn8o",
         "urlDevOps": "https://dev.azure.com/CCPRMG/Central%20de%20Tecnologia/_apis/wit/workitems/$BUG?api-version=7.0",

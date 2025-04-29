@@ -1,11 +1,9 @@
 ﻿using Integracao.Application.Abstractions;
-using Integracao.Application.Services.Azure;
 using Integracao.Domain.Abstractions.Repositories;
 using Integracao.Domain.Entities;
 using Integracao.Domain.Errors;
 using Integracao.Domain.Shared;
 using Integracao.Domain.ValueObjects.Azure;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Integracao.Application.UseCases.Azures;
 internal class AtualizarCardAzureCommandHandler(ITicketsRepository ticketsRepository, IDeParaStatusRepository deParaStatusRepository, IUsuarioRepository usuarioRepository,
@@ -17,7 +15,7 @@ internal class AtualizarCardAzureCommandHandler(ITicketsRepository ticketsReposi
        //Inicialização de Variavel considerando que Card no Azure não existe.
         var operacao = "add";
         long ticketAzure = 0;
-        var link = $"http://10.2.5.32/front/ticket.form.php?id={command.AcodTicketGLPI}";
+        var link = Environment.GetEnvironmentVariable("linkTicket") + $"{command.AcodTicketGLPI}";
 
 
         #region Validações Registros Existentes
